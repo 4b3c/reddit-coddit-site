@@ -3,30 +3,53 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 		<title>Coddit 2.0</title>
-		<style type="text/css">
-			.bold {
-				font-weight:  bold;
-				color:  white;
-			}
-		</style>
 		<style type="text/css">
 			table, th, td {
 				border:  1px solid white;
 				color: white;
 			}
 		</style>
+		<style type="text/css">
+			.bold {
+				color: white;
+				font: bold;
+			}
+		</style>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
 	</head>
 
 	<body style="background-color: #111120;">
-		<h1 class="bold">Coddit 2.0</h1>
-		<table style="width:80%">
-			<tr>
-				<td>Username:</td>
-				<td>Posts</td>
-				<td>Comments</td>
-			</tr>
-		</table>
+		<section>
+			<h1 class="bold">Coddit 2.0</h1>
+
+			<table id="user_data" style="width:50%">
+				<tr>
+					<td>Username:</td>
+					<td>Posts:</td>
+					<td>Comments:</td>
+				</tr>
+
+
+			<script>
+				$(document).ready(function () {
+					$.getJSON("data.json", function (data) {});
+
+						var value = 4345
+						var student = "<tr><td>"
+						student += value
+						student += "</td><td>"
+						student += value
+						student += "</td><td>"
+						student += value
+						student += "</td></tr>"
+
+	                    $('#user_data').append(student);
+
+                });
+			</script>
+
+		</section>
 	</body>
 </html>
