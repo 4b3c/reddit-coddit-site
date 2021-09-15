@@ -26,10 +26,8 @@ while True:
 		if post is None:
 			break
 		store(str(post.author), str(post.created_utc), 0)
-		post.upvote()
 
 	for comment in comment_stream:
 		if comment is None:
 			break
 		store(str(comment.author), str(comment.created_utc), 1)
-		comment.upvote()
