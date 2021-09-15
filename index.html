@@ -35,19 +35,19 @@
 
 			<script>
 				$(document).ready(function () {
-					$.getJSON("data.json", function (data) {console.log(Object.keys(data)[0])});
+					$.getJSON("data.json", function (data) {
 
 						var value = 234
 						var student = "<tr><td>"
-						student += value
+						student += Object.keys(data)[0]
 						student += "</td><td>"
-						student += value
+						student += data[Object.keys(data)[0]][0]
 						student += "</td><td>"
-						student += value
+						student += data[Object.keys(data)[0]][1]
 						student += "</td></tr>"
 
 	                    $('#user_data').append(student);
-
+	                });
                 });
 			</script>
 
