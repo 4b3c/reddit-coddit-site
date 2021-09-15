@@ -37,16 +37,16 @@
 				$(document).ready(function () {
 					$.getJSON("data.json", function (data) {
 
-						var value = 234
-						var student = "<tr><td>"
-						student += Object.keys(data)[0]
-						student += "</td><td>"
-						student += data[Object.keys(data)[0]][0]
-						student += "</td><td>"
-						student += data[Object.keys(data)[0]][1]
-						student += "</td></tr>"
+						for (let i = 0; i++)
+							var student = "<tr><td>"
+							student += Object.keys(data)[i]
+							student += "</td><td>"
+							student += data[Object.keys(data)[i]][0]
+							student += "</td><td>"
+							student += data[Object.keys(data)[i]][1]
+							student += "</td></tr>"
 
-	                    $('#user_data').append(student);
+		                    $('#user_data').append(student);
 	                });
                 });
 			</script>
