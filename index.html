@@ -14,6 +14,7 @@
 			.bold {
 				color: #744c90;
 				font: bold;
+				size: 20;
 			}
 		</style>
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -34,7 +35,7 @@
 
 			<script>
 				$(document).ready(function () {
-					$.getJSON("data.json", function (data) {console.log(data.ILikeTurtles2118)});
+					$.getJSON("data.json", function (data) {console.log(data[Object.keys(data)[0]])});
 						console.log("HELLO")
 
 						var value = 234
