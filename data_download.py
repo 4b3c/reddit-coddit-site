@@ -18,8 +18,6 @@ def store(author, created_time, contribution_type):
 			data[author][contribution_type] += 1
 			data[author][2].append(created_time)
 
-
-
 	with open("data.json", "w") as data_file:
 		json.dump(data, data_file, indent = 3)
 
