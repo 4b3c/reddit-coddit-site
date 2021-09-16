@@ -57,11 +57,11 @@
 
 						for (var user in sortable) {
 							var student = "<tr><td>";
-							student += sortable[0];
+							student += sortable[0][0];
 							student += "</td><td>";
-							student += sortable[1];
+							student += sortable[0][1];
 							student += "</td><td>";
-							student += sortable[2];
+							student += sortable[0][2];
 							student += "</td></tr>";
 
 		                    $('#user_data').append(student);
