@@ -24,7 +24,7 @@
 	<body style="background-color: #1f3e4c;">
 		<section>
 			<h1 class="bold">Activity list on r/TeenagersButPog</h1>
-			<a href="index.html">Sort by most contributions</a>
+			<a href="by_comment.html">Sort by most comments</a>
 			<a href="by_post.html">Sort by most posts</a>
 
 			<table id="user_data" style="width:50%">
@@ -37,20 +37,31 @@
 
 			<script>
 				$(document).ready(function () {
-					$.getJSON("data_by_comment.json", function (data) {
-						if (Object.keys(data).length > 40) {
-							max_shown = 40;
-						} else {
-							max_shown = Object.keys(data).length;
+					$.getJSON("data_by_contribution.json", function (data) {
+						var sortable = [];
+						for (var user in data) {
+							sortable.push([user, data[user][0], data[user][1]]);
 						}
 
-						for (let i = 0; i < max_shown; i++) {
+						console.log(sortable);
+
+						sortable.sort(function(a, b) {return b[2] - a[2]});
+
+						console.log(sortable);
+
+						if (sortable.length > 40) {
+							max_shown = 40;
+						} else {
+							max_shown = sortable.length;
+						}
+
+						for (var i = 0; i < max_shown; i++) {
 							var student = "<tr><td>";
-							student += Object.keys(data)[i];
+							student += sortable[i][0];
 							student += "</td><td>";
-							student += data[Object.keys(data)[i]][0];
+							student += sortable[i][1];
 							student += "</td><td>";
-							student += data[Object.keys(data)[i]][1];
+							student += sortable[i][2];
 							student += "</td></tr>";
 
 		                    $('#user_data').append(student);
