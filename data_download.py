@@ -52,4 +52,4 @@ while True:
 					data.get(user)[3].remove(i)
 				old_times = []
 	except:
-		print(ERROR "\r\r\r\r\r\r\r")
+		print("ERROR \r\r\r\r\r\r\r")
