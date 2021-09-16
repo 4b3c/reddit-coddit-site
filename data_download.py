@@ -26,27 +26,30 @@ def store(author, created_time, contribution_type):
 		json.dump(data, data_file, indent = 3)
 
 while True:
-	for post in submission_stream:
-		if post is None:
-			break
-		store(str(post.author), post.created_utc, 0)
+	try:
+		for post in submission_stream:
+			if post is None:
+				break
+			store(str(post.author), post.created_utc, 0)
 
-	for comment in comment_stream:
-		if comment is None:
-			break
-		store(str(comment.author), comment.created_utc, 1)
+		for comment in comment_stream:
+			if comment is None:
+				break
+			store(str(comment.author), comment.created_utc, 1)
 
-	with open("data.json") as data_file:
-		data = json.load(data_file)
-		
-		for user in data:
-			data.get(user)[2] = 0
-			for time in data.get(user)[3]:
-				if (time > time_.time() - 604800):
-					data.get(user)[2] = data.get(user)[2] + 1
-				else:
-					old_times.append(time)
+		with open("data.json") as data_file:
+			data = json.load(data_file)
+			
+			for user in data:
+				data.get(user)[2] = 0
+				for time in data.get(user)[3]:
+					if (time > time_.time() - 604800):
+						data.get(user)[2] = data.get(user)[2] + 1
+					else:
+						old_times.append(time)
 
-			for i in old_times:
-				data.get(user)[3].remove(i)
-			old_times = []
+				for i in old_times:
+					data.get(user)[3].remove(i)
+				old_times = []
+	except:
+		print(ERROR "\r\r\r\r\r\r\r")
