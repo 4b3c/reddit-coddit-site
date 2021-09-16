@@ -44,7 +44,7 @@
 
 			<script>
 				$(document).ready(function () {
-					$.getJSON("data_by_contribution.json", function (data) {
+					$.getJSON("data.json", function (data) {
 						var sortable = [];
 						for (var user in data) {
 							sortable.push([user, data[user][0], data[user][1]]);
