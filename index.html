@@ -55,13 +55,13 @@
 							max_shown = sortable.length;
 						}
 
-						for (var user in sortable) {
+						for (var i = 0; i < max_shown; i++) {
 							var student = "<tr><td>";
-							student += sortable[0][0];
+							student += sortable[i][0];
 							student += "</td><td>";
-							student += sortable[0][1];
+							student += sortable[i][1];
 							student += "</td><td>";
-							student += sortable[0][2];
+							student += sortable[i][2];
 							student += "</td></tr>";
 
 		                    $('#user_data').append(student);
