@@ -6,13 +6,13 @@
 		<title>Coddit 3.0</title>
 		<style type="text/css">
 			table, th, td {
-				border:  1px solid white;
+				border:  1px solid black;
 				color: white;
 			}
 		</style>
 		<style type="text/css">
 			.bold {
-				color: #744c90;
+				color: black;
 				font: bold;
 				size: 20;
 			}
@@ -36,6 +36,7 @@
 
 			<table id="user_data" style="width:50%">
 				<tr>
+					<td>Rank:</td>
 					<td>Username:</td>
 					<td>Posts:</td>
 					<td>Comments:</td>
@@ -64,6 +65,8 @@
 
 						for (var i = 0; i < max_shown; i++) {
 							var student = "<tr><td>";
+							student += i;
+							student += "</td><td>";
 							student += sortable[i][0];
 							student += "</td><td>";
 							student += sortable[i][1];
