@@ -192,7 +192,7 @@
       1
    ],
    "I_eat_fiberglass": [
-      1,
+      2,
       0
    ],
    "discob0tt": [
@@ -334,5 +334,9 @@
    "Mountain_Goat_7": [
       1,
       0
+   ],
+   "raceorachase": [
+      0,
+      2
    ]
 }
