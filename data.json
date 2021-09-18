@@ -205,7 +205,7 @@
    ],
    "RED_WING_": [
       10,
-      62
+      63
    ],
    "Frosthood_123": [
       0,
@@ -237,7 +237,7 @@
    ],
    "Chloeburbank1234": [
       8,
-      99
+      100
    ],
    "mr_alt_accountlol": [
       0,
@@ -409,7 +409,7 @@
    ],
    "-The_Grim_Reaper": [
       5,
-      16
+      17
    ],
    "Shakespeare-Bot": [
       0,
@@ -514,5 +514,9 @@
    "AKArein": [
       1,
       0
+   ],
+   "AutowoModerator": [
+      0,
+      1
    ]
 }
