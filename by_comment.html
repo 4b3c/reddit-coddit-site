@@ -57,13 +57,7 @@
 
 						console.log(sortable);
 
-						if (sortable.length > 100) {
-							max_shown = 40;
-						} else {
-							max_shown = sortable.length;
-						}
-
-						for (var i = 0; i < max_shown; i++) {
+						for (var i = 0; i < sortable.length - 1; i++) {
 							var student = "<tr><td>";
 							student += i + 1;
 							student += "</td><td>";
