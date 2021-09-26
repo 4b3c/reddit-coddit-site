@@ -23,7 +23,7 @@ def store(author, created_time, contribution_type):
 			# changed_list.append(author)
 
 	with open("data.json", "w") as data_file:
-		json.dump(data, data_file, indent = 3)
+		json.dump(data, data_file, indent = 1)
 
 while True:
 	for post in submission_stream:
