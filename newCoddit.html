@@ -25,69 +25,6 @@
 		<section>
 			<h1 class="bold">Activity list on r/TeenagersButPog</h1>
 
-			<script>
-				$(document).ready(function () {
-					$.getJSON("data.json", function (data) {
-						var sortable = [];
-						for (var user in data) {
-							sortable.push([user, data[user][0], data[user][1]]);
-						}
-
-						function posts_sort() {
-							console.log("Hereioooo")
-							sortable.sort(function(a, b) {return b[1] - a[1]});
-							if (sortable.length - 1 < 100) {
-								var length = sortable.length
-							} else {
-								var length = 100
-							}
-
-							for (var i = 0; i < length; i++) {
-								var table_row = "<tr><td>";
-								table_row += i + 1;
-								table_row += "</td><td>";
-								table_row += sortable[i][0];
-								table_row += "</td><td>";
-								table_row += sortable[i][1];
-								table_row += "</td><td>";
-								table_row += sortable[i][2];
-								table_row += "</td><td>";
-								table_row += sortable[i][1] + sortable[i][2];
-								table_row += "</td></tr>";
-
-			                    $('#top_today').append(table_row);
-			                };
-						}
-						function comments_sort() {
-							console.log("just to suffer")
-							sortable.sort(function(a, b) {return b[2] - a[2]});
-							if (sortable.length - 1 < 100) {
-								var length = sortable.length
-							} else {
-								var length = 100
-							}
-
-							for (var i = 0; i < length; i++) {
-								var table_row = "<tr><td>";
-								table_row += i + 1;
-								table_row += "</td><td>";
-								table_row += sortable[i][0];
-								table_row += "</td><td>";
-								table_row += sortable[i][1];
-								table_row += "</td><td>";
-								table_row += sortable[i][2];
-								table_row += "</td><td>";
-								table_row += sortable[i][1] + sortable[i][2];
-								table_row += "</td></tr>";
-
-			                    $('#top_today').append(table_row);
-			                };
-						}
-
-	                });
-                });
-			</script>
-
 		    <button onclick="posts_sort()">Sort by most posts</button>
 		    <button onclick="comments_sort()">Sort by most comments</button>
 
@@ -101,6 +38,46 @@
 					<td>Comments:</td>
 					<td>Total:</td>
 				</tr>
+
+			<script>
+				$(document).ready(function () {
+					$.getJSON("data.json", function (data) {
+						var sortable = [];
+						for (var user in data) {
+							sortable.push([user, data[user][0], data[user][1]]);
+						}
+
+						if (sortable.length - 1 < 100) {
+							var length = sortable.length
+						} else {
+							var length = 100
+						}
+
+						for (var i = 0; i < length; i++) {
+							var table_row = "<tr><td>";
+							table_row += i + 1;
+							table_row += "</td><td>";
+							table_row += sortable[i][0];
+							table_row += "</td><td>";
+							table_row += sortable[i][1];
+							table_row += "</td><td>";
+							table_row += sortable[i][2];
+							table_row += "</td><td>";
+							table_row += sortable[i][1] + sortable[i][2];
+							table_row += "</td></tr>";
+
+		                    $('#top_today').append(table_row);
+		                };
+	                });
+                });
+
+                function posts_sort() {
+					sortable.sort(function(a, b) {return b[1] - a[1]});
+				}
+				function comments_sort() {
+					sortable.sort(function(a, b) {return b[2] - a[2]});
+				}
+			</script>
 
 		</section>
 	</body>
