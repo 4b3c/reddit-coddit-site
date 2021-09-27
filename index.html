@@ -29,9 +29,6 @@
 		    <button type="submit" name="posts">Sort by most posts</button>
 		    <button type="submit" name="comments">Sort by most comments</button>
 
-			<a href="by_comment.html">Sort by most comments</a>
-			<a href="by_post.html">Sort by most posts</a>
-
 			<h2 class="bold">Top 100 contributors today:</h2>
 
 			<table id="top_today" style="width:70%">
@@ -58,7 +55,7 @@
 				btn3.innerHTML = "Sort by most comments";
 				btn3.type = "submit";
 				btn3.name = "comments";
-				
+
 				$(document).ready(function () {
 					$.getJSON("data.json", function (data) {
 						var sortable = [];
