@@ -48,6 +48,7 @@
 						}
 
 						function posts_sort() {
+							console.log("Hereioooo")
 							sortable.sort(function(a, b) {return b[1] - a[1]});
 							if (sortable.length - 1 < 100) {
 								var length = sortable.length
@@ -72,6 +73,7 @@
 			                };
 						}
 						function comments_sort() {
+							console.log("just to suffer")
 							sortable.sort(function(a, b) {return b[2] - a[2]});
 							if (sortable.length - 1 < 100) {
 								var length = sortable.length
