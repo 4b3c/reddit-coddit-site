@@ -25,27 +25,6 @@
 		<section>
 			<h1 class="bold">Activity list on r/TeenagersButPog</h1>
 
-			<script type="text/javascript">
-				let btn1 = document.createElement("button");
-				btn1.innerHTML = "Sort by most comments";
-				btn1.type = "submit";
-				btn1.name = "all";
-
-				let btn2 = document.createElement("button");
-				btn2.innerHTML = "Sort by most comments";
-				btn2.type = "submit";
-				btn2.name = "posts";
-
-				let btn3 = document.createElement("button");
-				btn3.innerHTML = "Sort by most comments";
-				btn3.type = "submit";
-				btn3.name = "comments";
-
-				btn1.onclick = function () {
-					var sort_by = 0;
-					console.log("AHAHAHHAHAH")
-		    </script>
-
 		    <button type="submit" name="all">Sort by most contributions</button>
 		    <button type="submit" name="posts">Sort by most posts</button>
 		    <button type="submit" name="comments">Sort by most comments</button>
@@ -65,6 +44,21 @@
 				</tr>
 
 			<script>
+				let btn1 = document.createElement("button");
+				btn1.innerHTML = "Sort by most comments";
+				btn1.type = "submit";
+				btn1.name = "all";
+
+				let btn2 = document.createElement("button");
+				btn2.innerHTML = "Sort by most comments";
+				btn2.type = "submit";
+				btn2.name = "posts";
+
+				let btn3 = document.createElement("button");
+				btn3.innerHTML = "Sort by most comments";
+				btn3.type = "submit";
+				btn3.name = "comments";
+				
 				$(document).ready(function () {
 					$.getJSON("data.json", function (data) {
 						var sortable = [];
