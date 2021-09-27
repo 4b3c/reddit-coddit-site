@@ -25,20 +25,6 @@
 		<section>
 			<h1 class="bold">Activity list on r/TeenagersButPog</h1>
 
-		    <button onclick="posts_sort()">Sort by most posts</button>
-		    <button onclick="comments_sort()">Sort by most comments</button>
-
-			<h2 class="bold">Top 100 contributors in the last 24 hours:</h2>
-
-			<table id="top_today" style="width:70%">
-				<tr>
-					<td>Rank:</td>
-					<td>Username:</td>
-					<td>Posts:</td>
-					<td>Comments:</td>
-					<td>Total:</td>
-				</tr>
-
 			<script>
 				$(document).ready(function () {
 					$.getJSON("data.json", function (data) {
@@ -101,6 +87,20 @@
 	                });
                 });
 			</script>
+
+		    <button onclick="posts_sort()">Sort by most posts</button>
+		    <button onclick="comments_sort()">Sort by most comments</button>
+
+			<h2 class="bold">Top 100 contributors in the last 24 hours:</h2>
+
+			<table id="top_today" style="width:70%">
+				<tr>
+					<td>Rank:</td>
+					<td>Username:</td>
+					<td>Posts:</td>
+					<td>Comments:</td>
+					<td>Total:</td>
+				</tr>
 
 		</section>
 	</body>
