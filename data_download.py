@@ -35,36 +35,39 @@ def store_daily(author, created_time, contribution_type):
 		json.dump(data, data_file, indent = 3)
 
 while True:
-	for post in submission_stream:
-		if post is None:
-			break
-		store_daily(str(post.author), post.created_utc, 0)
-		store_total(str(post.author), 0)
+	try:
+		for post in submission_stream:
+			if post is None:
+				break
+			store_daily(str(post.author), post.created_utc, 0)
+			store_total(str(post.author), 0)
 
-	for comment in comment_stream:
-		if comment is None:
-			break
-		store_daily(str(comment.author), comment.created_utc, 1)
-		store_total(str(comment.author), 0)
+		for comment in comment_stream:
+			if comment is None:
+				break
+			store_daily(str(comment.author), comment.created_utc, 1)
+			store_total(str(comment.author), 0)
 
-	with open("today.json") as data_file:
-		data = json.load(data_file)
-		
-		for user in data:
-			for time in data.get(user)[2]:
-				if (time < time_.time() - 84600):
-					data.get(user)[0] = data.get(user)[0] - 1
-					old_times.append(time)
+		with open("today.json") as data_file:
+			data = json.load(data_file)
+			
+			for user in data:
+				for time in data.get(user)[2]:
+					if (time < time_.time() - 84600):
+						data.get(user)[0] = data.get(user)[0] - 1
+						old_times.append(time)
 
-				for i in old_times:
-					data.get(user)[2].remove(i)
-				old_times = []
+					for i in old_times:
+						data.get(user)[2].remove(i)
+					old_times = []
 
-			for time in data.get(user)[3]:
-				if (time < time_.time() - 84600):
-					data.get(user)[1] = data.get(user)[1] - 1
-					old_times.append(time)
+				for time in data.get(user)[3]:
+					if (time < time_.time() - 84600):
+						data.get(user)[1] = data.get(user)[1] - 1
+						old_times.append(time)
 
-				for i in old_times:
-					data.get(user)[3].remove(i)
-				old_times = []
+					for i in old_times:
+						data.get(user)[3].remove(i)
+					old_times = []
+	except:
+		print("Error")
