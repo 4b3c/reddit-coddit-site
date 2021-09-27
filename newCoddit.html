@@ -40,12 +40,14 @@
 				</tr>
 
 			<script>
-				$(document).ready(function () {
+				$(document).ready(function sort_stuff(posts_or_comments) {
 					$.getJSON("data.json", function (data) {
 						var sortable = [];
 						for (var user in data) {
 							sortable.push([user, data[user][0], data[user][1]]);
 						}
+
+						sortable.sort(function(a, b) {return b[posts_or_comments] - a[posts_or_comments]});
 
 						if (sortable.length - 1 < 100) {
 							var length = sortable.length
@@ -72,10 +74,10 @@
                 });
 
                 function posts_sort() {
-					sortable.sort(function(a, b) {return b[1] - a[1]});
+					sort_stuff(1);
 				}
 				function comments_sort() {
-					sortable.sort(function(a, b) {return b[2] - a[2]});
+					sort_stuff(2);
 				}
 			</script>
 
