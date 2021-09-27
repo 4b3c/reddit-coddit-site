@@ -40,38 +40,40 @@
 				</tr>
 
 			<script>
-				$(document).ready(function sort_stuff(posts_or_comments) {
-					$.getJSON("data.json", function (data) {
-						var sortable = [];
-						for (var user in data) {
-							sortable.push([user, data[user][0], data[user][1]]);
-						}
+				function sort_stuff(posts_or_comments) {
+					$(document).ready(function () {
+						$.getJSON("data.json", function (data) {
+							var sortable = [];
+							for (var user in data) {
+								sortable.push([user, data[user][0], data[user][1]]);
+							}
 
-						sortable.sort(function(a, b) {return b[posts_or_comments] - a[posts_or_comments]});
+							sortable.sort(function(a, b) {return b[posts_or_comments] - a[posts_or_comments]});
 
-						if (sortable.length - 1 < 100) {
-							var length = sortable.length
-						} else {
-							var length = 100
-						}
+							if (sortable.length - 1 < 100) {
+								var length = sortable.length
+							} else {
+								var length = 100
+							}
 
-						for (var i = 0; i < length; i++) {
-							var table_row = "<tr><td>";
-							table_row += i + 1;
-							table_row += "</td><td>";
-							table_row += sortable[i][0];
-							table_row += "</td><td>";
-							table_row += sortable[i][1];
-							table_row += "</td><td>";
-							table_row += sortable[i][2];
-							table_row += "</td><td>";
-							table_row += sortable[i][1] + sortable[i][2];
-							table_row += "</td></tr>";
+							for (var i = 0; i < length; i++) {
+								var table_row = "<tr><td>";
+								table_row += i + 1;
+								table_row += "</td><td>";
+								table_row += sortable[i][0];
+								table_row += "</td><td>";
+								table_row += sortable[i][1];
+								table_row += "</td><td>";
+								table_row += sortable[i][2];
+								table_row += "</td><td>";
+								table_row += sortable[i][1] + sortable[i][2];
+								table_row += "</td></tr>";
 
-		                    $('#top_today').append(table_row);
-		                };
+			                    $('#top_today').append(table_row);
+			                };
+		                });
 	                });
-                });
+	            }
 
                 function posts_sort() {
 					sort_stuff(1);
