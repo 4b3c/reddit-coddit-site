@@ -18,6 +18,9 @@ def store_total(author, contribution_type):
 			data[author] = [0, 0]
 			data[author][contribution_type] += 1
 
+	with open("data.json", "w") as data_file:
+		json.dump(data, data_file, indent = 3)
+
 def store_daily(author, created_time, contribution_type):
 	with open("today.json") as data_file:
 		data = json.load(data_file)
