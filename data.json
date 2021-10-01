@@ -104,7 +104,7 @@
       65
    ],
    "AutoModerator": [
-      4,
+      5,
       5
    ],
    "ProCDecoder": [
@@ -181,7 +181,7 @@
    ],
    "Cyanide-Kid": [
       2,
-      9
+      10
    ],
    "Additional-Data7419": [
       14,
@@ -197,7 +197,7 @@
    ],
    "slashy_washy": [
       25,
-      187
+      189
    ],
    "TheTitanOfReddit": [
       3,
@@ -232,7 +232,7 @@
       1
    ],
    "snezzyanus1": [
-      0,
+      1,
       1
    ],
    "joseph_joestar___": [
@@ -257,15 +257,15 @@
    ],
    "profanitycounter": [
       0,
-      2
+      3
    ],
    "plastic-cemeteries": [
       5,
-      18
+      19
    ],
    "00000100122120021101": [
       1,
-      6
+      7
    ],
    "kuodron": [
       0,
@@ -276,7 +276,7 @@
       0
    ],
    "jdjdudjjdhddujdjsjs": [
-      5,
+      6,
       5
    ],
    "linebreaker-bot": [
@@ -314,5 +314,9 @@
    "TheSmileyFaceGuyXD": [
       1,
       0
+   ],
+   "ILikeTurtles2118": [
+      0,
+      1
    ]
 }
