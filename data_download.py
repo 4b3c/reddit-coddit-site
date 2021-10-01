@@ -49,7 +49,7 @@ while True:
 			if comment is None:
 				break
 			store_daily(str(comment.author), comment.created_utc, 1)
-			store_total(str(comment.author), 0)
+			store_total(str(comment.author), 1)
 
 		with open("today.json") as data_file:
 			data = json.load(data_file)
