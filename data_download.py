@@ -37,41 +37,56 @@ def store_daily(author, created_time, contribution_type):
 	with open("today.json", "w") as data_file:
 		json.dump(data, data_file, indent = 3)
 
-while True:
-	try:
-		for post in submission_stream:
-			if post is None:
-				break
-			store_daily(str(post.author), post.created_utc, 0)
-			store_total(str(post.author), 0)
+print(reddit.subreddit("teenagersbutpog").flair.templates)
+# x = 0
+# i = 100
 
-		for comment in comment_stream:
-			if comment is None:
-				break
-			store_daily(str(comment.author), comment.created_utc, 1)
-			store_total(str(comment.author), 1)
+# while True:
+# 	try:
+# 		for post in submission_stream:
+# 			if post is None:
+# 				break
+# 			store_daily(str(post.author), post.created_utc, 0)
+# 			store_total(str(post.author), 0)
 
-		with open("today.json") as data_file:
-			data = json.load(data_file)
+# 		for comment in comment_stream:
+# 			if comment is None:
+# 				break
+# 			store_daily(str(comment.author), comment.created_utc, 1)
+# 			store_total(str(comment.author), 1)
+
+# 		with open("today.json") as data_file:
+# 			data = json.load(data_file)
 			
-			for user in data:
-				for time in data.get(user)[2]:
-					if (time < time_.time() - 84600):
-						data.get(user)[0] = data.get(user)[0] - 1
-						old_times.append(time)
+# 			for user in data:
+# 				for time in data.get(user)[2]:
+# 					if (time < time_.time() - 84600):
+# 						data.get(user)[0] = data.get(user)[0] - 1
+# 						old_times.append(time)
 
-					for i in old_times:
-						data.get(user)[2].remove(i)
-					old_times = []
+# 					for i in old_times:
+# 						data.get(user)[2].remove(i)
+# 					old_times = []
 
-				for time in data.get(user)[3]:
-					if (time < time_.time() - 84600):
-						data.get(user)[1] = data.get(user)[1] - 1
-						old_times.append(time)
+# 				for time in data.get(user)[3]:
+# 					if (time < time_.time() - 84600):
+# 						data.get(user)[1] = data.get(user)[1] - 1
+# 						old_times.append(time)
 
-					for i in old_times:
-						data.get(user)[3].remove(i)
-					old_times = []
-	except:
-		print("Error")
-		time_.sleep(10)
+# 					for i in old_times:
+# 						data.get(user)[3].remove(i)
+# 					old_times = []
+
+# 		# x = x + 1
+# 		# if (x > i):
+# 			# x = 0
+# 			# i = random.randint(0, 10000)
+
+# 			# with open("today.json") as data_file:
+# 			# 	username = json.load(data_file)[random.randint(0, 100)]
+# 			# if (username not in appreciated):
+# 			# 	reddit.subreddit("teenagersbutpog")submit(title = "appreciation post for" + username, selftext = "", flair_id = )
+
+# 	except:
+# 		print("Error")
+# 		time_.sleep(10)
