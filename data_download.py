@@ -80,7 +80,7 @@ while True:
 		print(x, z)
 		if (x > z):
 			x = 0
-			z = random.randint(0, 1000)
+			z = random.randint(0, 300)
 
 			with open("appreciated.json") as data_file:
 				appreciated = json.load(data_file)
