@@ -38,59 +38,61 @@ def store_daily(author, created_time, contribution_type):
 		json.dump(data, data_file, indent = 3)
 
 x = 0
-i = 10
+z = 10
 
 while True:
-	try:
-		for post in submission_stream:
-			if post is None:
-				break
-			store_daily(str(post.author), post.created_utc, 0)
-			store_total(str(post.author), 0)
+	# try:
+	for post in submission_stream:
+		if post is None:
+			break
+		store_daily(str(post.author), post.created_utc, 0)
+		store_total(str(post.author), 0)
 
-		for comment in comment_stream:
-			if comment is None:
-				break
-			store_daily(str(comment.author), comment.created_utc, 1)
-			store_total(str(comment.author), 1)
+	for comment in comment_stream:
+		if comment is None:
+			break
+		store_daily(str(comment.author), comment.created_utc, 1)
+		store_total(str(comment.author), 1)
+
+	with open("today.json") as data_file:
+		data = json.load(data_file)
+		
+		for user in data:
+			for time in data.get(user)[2]:
+				if (time < time_.time() - 84600):
+					data.get(user)[0] = data.get(user)[0] - 1
+					old_times.append(time)
+
+				for i in old_times:
+					data.get(user)[2].remove(i)
+				old_times = []
+
+			for time in data.get(user)[3]:
+				if (time < time_.time() - 84600):
+					data.get(user)[1] = data.get(user)[1] - 1
+					old_times.append(time)
+
+				for i in old_times:
+					data.get(user)[3].remove(i)
+				old_times = []
+
+	x = x + 1
+	print("Wowowo", x, z)
+	if (x > z):
+		print("Somethiung")
+		x = 0
+		i = random.randint(0, 10000)
+
+		with open("appreciated.json") as data_file:
+			appreciated = json.load(data_file)
 
 		with open("today.json") as data_file:
-			data = json.load(data_file)
-			
-			for user in data:
-				for time in data.get(user)[2]:
-					if (time < time_.time() - 84600):
-						data.get(user)[0] = data.get(user)[0] - 1
-						old_times.append(time)
+			username = json.load(data_file)[random.randint(0, 100)]
+		if (username not in appreciated):
+			post = reddit.subreddit("teenagersbutpog").submit(title = "appreciation post for" + username, selftext = "", flair_id = "6a92db18-9a37-11eb-ad7d-0ea199717311")
+			post.reply("u/" + username)
+			appreciated.append(username)
 
-					for i in old_times:
-						data.get(user)[2].remove(i)
-					old_times = []
-
-				for time in data.get(user)[3]:
-					if (time < time_.time() - 84600):
-						data.get(user)[1] = data.get(user)[1] - 1
-						old_times.append(time)
-
-					for i in old_times:
-						data.get(user)[3].remove(i)
-					old_times = []
-
-		x = x + 1
-		if (x > i):
-			x = 0
-			i = random.randint(0, 10000)
-
-			with open("appreciated.json") as data_file:
-				appreciated = json.load(data_file)
-
-			with open("today.json") as data_file:
-				username = json.load(data_file)[random.randint(0, 100)]
-			if (username not in appreciated):
-				post = reddit.subreddit("teenagersbutpog").submit(title = "appreciation post for" + username, selftext = "", flair_id = "6a92db18-9a37-11eb-ad7d-0ea199717311")
-				post.reply("u/" + username)
-				appreciated.append(username)
-
-	except:
-		print("Error")
-		time_.sleep(10)
+	# except:
+	# 	print("Error")
+	# 	time_.sleep(10)
