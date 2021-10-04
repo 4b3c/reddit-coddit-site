@@ -76,23 +76,25 @@ while True:
 					data.get(user)[3].remove(i)
 				old_times = []
 
-	# x = x + 1
-	# print("Wowowo", x, z)
-	# if (x > z):
-	# 	print("Somethiung")
-	# 	x = 0
-	# 	i = random.randint(0, 10000)
+	x = x + 1
+	print("Wowowo", x, z)
+	if (x > z):
+		print("Somethiung")
+		x = 0
+		i = random.randint(0, 10000)
 
-	# 	with open("appreciated.json") as data_file:
-	# 		appreciated = json.load(data_file)
+		with open("appreciated.json") as data_file:
+			appreciated = json.load(data_file)
 
-	# 	with open("today.json") as data_file:
-	# 		list2 = json.load(data_file)
-	# 		username = list2
-	# 	if (username not in appreciated):
-	# 		post = reddit.subreddit("teenagersbutpog").submit(title = "appreciation post for" + username, selftext = "", flair_id = "6a92db18-9a37-11eb-ad7d-0ea199717311")
-	# 		post.reply("u/" + username)
-	# 		appreciated.append(username)
+		with open("today.json") as data_file:
+			list2 = json.load(data_file)
+			for user in list2:
+				if (list2[user][1] > 500):
+					username = user
+		if (username not in appreciated):
+			post = reddit.subreddit("teenagersbutpog").submit(title = "appreciation post for" + username, selftext = "", flair_id = "6a92db18-9a37-11eb-ad7d-0ea199717311")
+			post.reply("u/" + username)
+			appreciated.append(username)
 
 	# except:
 	# 	print("Error")
