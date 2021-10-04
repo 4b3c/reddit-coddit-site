@@ -89,7 +89,8 @@ while True:
 		with open("today.json") as data_file:
 			list2 = json.load(data_file)
 			for items in list2:
-				list3.append(items)
+				if (list2[items][1] > 100):
+					list3.append(items)
 			username = random.choice(list3)
 		if (username not in appreciated):
 			post = reddit.subreddit("teenagersbutpog").submit(title = "appreciation post for " + username, selftext = "", flair_id = "6a92db18-9a37-11eb-ad7d-0ea199717311")
@@ -97,7 +98,7 @@ while True:
 			appreciated.append(username)
 			print("Posted for " + username)
 
-			with open("appreciated.json", "w"):
+			with open("appreciated.json", "w") as data_file:
 				json.dump(appreciated, data_file, indent = 3)
 
 	# except:
