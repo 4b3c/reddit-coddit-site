@@ -77,9 +77,7 @@ while True:
 				old_times = []
 
 	x = x + 1
-	print("Wowowo", x, z)
 	if (x > z):
-		print("Somethiung")
 		x = 0
 		z = random.randint(0, 10000)
 
@@ -95,6 +93,7 @@ while True:
 			post = reddit.subreddit("teenagersbutpog").submit(title = "appreciation post for " + username, selftext = "", flair_id = "6a92db18-9a37-11eb-ad7d-0ea199717311")
 			post.reply("u/" + username)
 			appreciated.append(username)
+			print("Posted for " + username)
 
 			with open("appreciated.json", "w"):
 				json.dump(appreciated, data_file, indent = 3)
