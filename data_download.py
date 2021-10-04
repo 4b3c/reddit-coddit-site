@@ -37,7 +37,8 @@ def store_daily(author, created_time, contribution_type):
 	with open("today.json", "w") as data_file:
 		json.dump(data, data_file, indent = 3)
 
-print(reddit.subreddit("teenagersbutpog").flair.templates)
+for flair in reddit.subreddit("teenagersbutpog").flair.link_templates:
+	print(flair)
 # x = 0
 # i = 100
 
