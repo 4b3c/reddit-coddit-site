@@ -81,7 +81,7 @@ while True:
 	if (x > z):
 		print("Somethiung")
 		x = 0
-		i = random.randint(0, 10000)
+		z = random.randint(0, 10000)
 
 		with open("appreciated.json") as data_file:
 			appreciated = json.load(data_file)
@@ -92,9 +92,12 @@ while True:
 				if (list2[user][1] > 500):
 					username = user
 		if (username not in appreciated):
-			post = reddit.subreddit("teenagersbutpog").submit(title = "appreciation post for" + username, selftext = "", flair_id = "6a92db18-9a37-11eb-ad7d-0ea199717311")
+			post = reddit.subreddit("teenagersbutpog").submit(title = "appreciation post for " + username, selftext = "", flair_id = "6a92db18-9a37-11eb-ad7d-0ea199717311")
 			post.reply("u/" + username)
 			appreciated.append(username)
+
+			with open("appreciated.json", "w"):
+				json.dump(appreciated, data_file, indent = 3)
 
 	# except:
 	# 	print("Error")
