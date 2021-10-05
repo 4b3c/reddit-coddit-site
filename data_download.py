@@ -55,7 +55,7 @@ while True:
 		for comment in comment_stream:
 			if comment is None:
 				break
-			author = str(post.author)
+			author = str(comment.author)
 			store_daily(author, comment.created_utc, 1)
 			store_total(author, 1)
 			x = x + 1
