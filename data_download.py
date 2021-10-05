@@ -43,9 +43,9 @@ z = 10
 while True:
 	try:
 		for post in submission_stream:
-			author = str(post.author)
 			if post is None:
 				break
+			author = str(post.author)
 			if ("automod" in author.lower()):
 				post.reply("eheheh hi breastie")
 			store_daily(author, post.created_utc, 0)
@@ -55,8 +55,9 @@ while True:
 		for comment in comment_stream:
 			if comment is None:
 				break
-			store_daily(str(comment.author), comment.created_utc, 1)
-			store_total(str(comment.author), 1)
+			author = str(post.author)
+			store_daily(author, comment.created_utc, 1)
+			store_total(author, 1)
 			x = x + 1
 
 		with open("today.json") as data_file:
@@ -81,7 +82,6 @@ while True:
 						data.get(user)[3].remove(i)
 					old_times = []
 
-		print(x, z)
 		if (x > z):
 			x = 0
 			z = random.randint(0, 150)
