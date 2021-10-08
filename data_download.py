@@ -109,5 +109,5 @@ while True:
 		# 			json.dump(appreciated, data_file, indent = 3)
 
 	except:
-		prnt("Error")
+		print("Error")
 		time_.sleep(10)
