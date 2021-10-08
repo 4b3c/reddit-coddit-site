@@ -81,32 +81,33 @@ while True:
 						data.get(user)[3].remove(i)
 					old_times = []
 
-		# if (x > 150):
-		# 	print(x)
-		# 	list3 = []
+		if (x > 150):
+			print(x)
+			x = 0
+			list3 = []
 
-		# 	with open("appreciated.json") as data_file:
-		# 		appreciated = json.load(data_file)
+			with open("appreciated.json") as data_file:
+				appreciated = json.load(data_file)
 
-		# 	with open("today.json") as data_file:
-		# 		list2 = json.load(data_file)
+			with open("today.json") as data_file:
+				list2 = json.load(data_file)
 
-		# 	list3 = list2.keys()
-		# 	list3 = list(list3)
+			list3 = list2.keys()
+			list3 = list(list3)
 
-		# 	for item in appreciated:
-		# 		list3.remove(item)
+			for item in appreciated:
+				list3.remove(item)
 
-		# 	username = list3[0]
+			username = list3[0]
 
-		# 	if (username not in appreciated):
-		# 		post = reddit_post.subreddit("teenagersbutpog").submit(title = "Appreciation post for " + username, selftext = "", flair_id = "6a92db18-9a37-11eb-ad7d-0ea199717311")
-		# 		post.reply("u/" + username)
-		# 		appreciated.append(username)
-		# 		print("Posted for " + username)
+			if (username not in appreciated):
+				post = reddit_post.subreddit("teenagersbutpog").submit(title = "Appreciation post for " + username, selftext = "", flair_id = "6a92db18-9a37-11eb-ad7d-0ea199717311")
+				post.reply("u/" + username)
+				appreciated.append(username)
+				print("Posted for " + username)
 
-		# 		with open("appreciated.json", "w") as data_file:
-		# 			json.dump(appreciated, data_file, indent = 3)
+				with open("appreciated.json", "w") as data_file:
+					json.dump(appreciated, data_file, indent = 3)
 
 	except:
 		print("Error")
