@@ -83,9 +83,7 @@ while True:
 						data.get(user)[3].remove(i)
 					old_times = []
 
-		if (x > z):
-			x = 0
-			z = random.randint(0, 150)
+		if (x > 150):
 
 			with open("appreciated.json") as data_file:
 				appreciated = json.load(data_file)
@@ -96,7 +94,7 @@ while True:
 			for item in appreciated:
 				list2.remove(item)
 
-			username = random.choice(list2)
+			username = list2[0]
 
 			if (username not in appreciated):
 				post = reddit_post.subreddit("teenagersbutpog").submit(title = "Appreciation post for " + username, selftext = "", flair_id = "6a92db18-9a37-11eb-ad7d-0ea199717311")
