@@ -1,5 +1,5 @@
 import praw, random, login_info, json, time as time_
-reddit = login_info.reddit\
+reddit = login_info.reddit
 reddit_post = login_info.reddit_post
 
 submission_stream = reddit.subreddit("teenagersbutpog").stream.submissions(pause_after = -1, skip_existing = True)
