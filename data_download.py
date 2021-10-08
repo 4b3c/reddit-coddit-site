@@ -82,6 +82,7 @@ while True:
 					old_times = []
 
 		if (x > 150):
+			print(x)
 			list3 = []
 
 			with open("appreciated.json") as data_file:
@@ -91,8 +92,9 @@ while True:
 				list2 = json.load(data_file)
 
 			for items in list2:
-				print(items)
 				list3.append(list2[items])
+
+			print(list3)
 
 			for item in appreciated:
 				list3.remove(item)
