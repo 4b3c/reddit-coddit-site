@@ -91,10 +91,8 @@ while True:
 			with open("today.json") as data_file:
 				list2 = json.load(data_file)
 
-			for items in list2:
-				list3.append(list2[items])
-
-			print(list3)
+			list3 = list2.keys()
+			list(list3)
 
 			for item in appreciated:
 				list3.remove(item)
