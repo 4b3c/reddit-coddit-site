@@ -82,6 +82,7 @@ while True:
 					old_times = []
 
 		if (x > 150):
+			list3 = []
 
 			with open("appreciated.json") as data_file:
 				appreciated = json.load(data_file)
@@ -89,10 +90,13 @@ while True:
 			with open("today.json") as data_file:
 				list2 = json.load(data_file)
 
-			for item in appreciated:
-				list2.remove(item)
+			for items in list2:
+				list3.append(list2[items])
 
-			username = list2[0]
+			for item in appreciated:
+				list3.remove(item)
+
+			username = list3[0]
 
 			if (username not in appreciated):
 				post = reddit_post.subreddit("teenagersbutpog").submit(title = "Appreciation post for " + username, selftext = "", flair_id = "6a92db18-9a37-11eb-ad7d-0ea199717311")
