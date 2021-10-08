@@ -92,7 +92,7 @@ while True:
 				list2 = json.load(data_file)
 
 			list3 = list2.keys()
-			list(list3)
+			list3 = list(list3)
 
 			for item in appreciated:
 				list3.remove(item)
