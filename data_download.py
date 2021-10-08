@@ -91,6 +91,7 @@ while True:
 				list2 = json.load(data_file)
 
 			for items in list2:
+				print(items)
 				list3.append(list2[items])
 
 			for item in appreciated:
