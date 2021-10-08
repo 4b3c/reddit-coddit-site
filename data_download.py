@@ -1,5 +1,6 @@
 import praw, random, login_info, json, time as time_
-reddit = login_info.reddit
+reddit = login_info.reddit\
+reddit_post = login_info.reddit_post
 
 submission_stream = reddit.subreddit("teenagersbutpog").stream.submissions(pause_after = -1, skip_existing = True)
 comment_stream = reddit.subreddit("teenagersbutpog").stream.comments(pause_after = -1, skip_existing = True)
@@ -89,15 +90,16 @@ while True:
 			with open("appreciated.json") as data_file:
 				appreciated = json.load(data_file)
 
-			list3 = []
 			with open("today.json") as data_file:
 				list2 = json.load(data_file)
-				for items in list2:
-					if (list2[items][1] > 100):
-						list3.append(items)
-				username = random.choice(list3)
+
+			for item in appreciated:
+				list2.remove(item)
+
+			username = random.choice(list2)
+
 			if (username not in appreciated):
-				post = reddit.subreddit("teenagersbutpog").submit(title = "appreciation post for " + username, selftext = "", flair_id = "6a92db18-9a37-11eb-ad7d-0ea199717311")
+				post = reddit_post.subreddit("teenagersbutpog").submit(title = "Appreciation post for " + username, selftext = "", flair_id = "6a92db18-9a37-11eb-ad7d-0ea199717311")
 				post.reply("u/" + username)
 				appreciated.append(username)
 				print("Posted for " + username)
