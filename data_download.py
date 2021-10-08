@@ -38,9 +38,7 @@ def store_daily(author, created_time, contribution_type):
 	with open("today.json", "w") as data_file:
 		json.dump(data, data_file, indent = 3)
 
-x = 0
-z = 10
-
+x = 149
 while True:
 	try:
 		for post in submission_stream:
@@ -106,5 +104,5 @@ while True:
 					json.dump(appreciated, data_file, indent = 3)
 
 	except:
-		print("Error")
+		prnt("Error")
 		time_.sleep(10)
