@@ -132,5 +132,5 @@ while True:
 					json.dump(data, data_file, indent = 3)
 
 	except:
-		pri0nt("Error")
+		print("Error")
 		time_.sleep(10)
