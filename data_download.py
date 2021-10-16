@@ -56,7 +56,7 @@ while True:
 			store_total(author, 1)
 			x = x + 1
 
-		if (x > 150):
+		if (x > 1000):
 			print(x)
 			x = 0
 			list3 = []
